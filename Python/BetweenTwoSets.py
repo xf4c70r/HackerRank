@@ -16,16 +16,29 @@ import sys
 #
 
 def getTotalX(a, b):
-    c = 0
-    for i in a :
+    # Write your code here
+    start = a[-1]
+    end = b[0]
+    num = []
+    for i in range(start,end+1):
+        flag = True
+        for j in a:
+            if i%j!=0:
+                flag=False
+                break
+        if flag:
+            num.append(i)
+            
+    count=0
+    for i in num:
+        flag = True
         for j in b:
-            if (i > j):
-                if (i%j == 0):
-                  c += 1
-            else:
-                if (j%i == 0):
-                    c += 1
-    return(c//2)
+            if j%i!=0:
+                flag = False
+                break
+        if flag:
+            count+=1
+    return count
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
