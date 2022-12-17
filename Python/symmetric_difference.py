@@ -1,0 +1,8 @@
+m = int(input())
+lis_a = input().split()
+a_set = set(map(int, lis_a))
+n = int(input())
+lis_b = input().split()
+b_set = set(map(int, lis_b))
+c_set = list(a_set.symmetric_difference(b_set))
+print(len(c_set))
